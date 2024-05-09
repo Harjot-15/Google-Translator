@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* Reset and basic styling */
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Patrick Hand', cursive;
+    background-color: antiquewhite;
+    /* Original body color */
+    color: #333;
+}
+
+/* Header styling - soft extruded look */
+.header {
+    background-color: #fbd589; /* Original header color */
+    color: black;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 -10px 20px rgba(255, 255, 255, 0.1);
+    width: 80%; /* Header is 80% of the body width */
+    margin: 30px auto 15px; /* Centers the header and moves it down from the top */
+    border-radius: 10px; /* Rounded corners */
+    position: relative; /* Required for proper positioning of the floating effect */
+    animation: float 5s ease-in-out infinite; /* Floating animation */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+
+.header p {
+    font-size: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Main content area */
+.main-content {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Translator canvas styling - soft inset look */
+.translator-canvas {
+    background-color: #79d750;
+    /* Original canvas color */
+    border-radius: 8px;
+    box-shadow: inset 8px 8px 15px #5a8f3c, inset -8px -8px 15px #5a8f3c;
+    /* Inset neumorphic shadow with color shades */
+    padding: 20px;
+    margin: 5px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .translator-canvas {
+        width: 90%;
+    }
+}
+
+/* Language selector and text area styling - neumorphic raised effect */
+.language-selectors select,
+.text-areas textarea {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    /* Original border */
+    font-family: 'Patrick Hand', cursive;
+    font-size: 16px;
+    background-color: #e0e0e0;
+    /* Matching the translator canvas */
+    box-shadow: -4px -4px 8px #5a8f3c, 4px 4px 8px #5a8f3c;
+    /* Raised effect with darker and lighter shades */
+}
+
+/* Text area styling */
+textarea {
+    width: calc(100% - 22px);
+    /* Adjusting for padding and border */
+    min-height: 100px;
+    resize: vertical;
+}
+
+#translatedText {
+    background-color: #f8f8f8;
+    /* Original color */
+}
+
+/* Language swap button styling - neumorphic button */
+.swap-languages {
+    background-color: whitesmoke;
+    /* Original button color */
+    color: Black;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0 15px;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px #5a8f3c, -4px -4px 8px #5a8f3c;
+    /* Soft shadow with color shades */
+}
+
+
+/* Toggle Switch Styles - neumorphic toggle */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 10px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    /* Original color */
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: -8px -8px 15px #ffcfab, 8px 8px 15px #e2a15d;
+    /* Soft shadow with darker background shade */
+}
+
+.toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px #b3b3b3, 4px 4px 8px #b3b3b3;
+    /* Soft shadow with darker background shade */
+}
+
+.toggle-checkbox:checked+.toggle-label:before {
+    transform: translateX(26px);
+}
+
+
+
+/* Dark mode specific styling */
+.dark-mode {
+    background-color: #464646;
+    /* Original dark mode color */
+    color: #fff;
+}
+
+
+.dark-mode .header {
+    background-color: #323232;
+    /* Original dark mode color */
+    color: #fff;
+    box-shadow: 0 4px 8px #292929, 0 -4px 8px #3b3b3b; /* Darker and lighter shades for depth */
+}
+
+.dark-mode .main-content {
+    background-color: #3b3b3b;
+}
+
+.dark-mode .main-content h2 {
+    color: black;
+}
+
+/* Dark mode specific adjustments */
+.dark-mode .toggle-label {
+    background-color: #757575;
+    /* Darker grey suitable for dark mode */
+    box-shadow: -8px -8px 15px #5f5f5f, 8px 8px 15px #8f8f8f;
+    /* Adjusted shadows for dark mode */
+}
+
+.dark-mode .toggle-label:before {
+    background-color: #fbd589;
+    /* Dark mode background for the knob */
+    box-shadow: -2px -2px 4px #383838, 2px 2px 4px #505050;
+    /* Adjusted shadows for the knob in dark mode */
+}
+
+.dark-mode .toggle-switch .toggle-checkbox:checked+.toggle-label {
+    background-color: #90d463;
+    /* Darker background when the toggle is checked */
+    box-shadow: -8px -8px 15px #2b2b2b, -8px -8px 15px #2b2b2b;
+    /* Adjusted shadows for checked state */
+}
